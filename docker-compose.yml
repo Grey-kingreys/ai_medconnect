@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  medconnect-ai:
+    build: .
+    container_name: medconnect-ai
+    ports:
+      - "8002:8000"
+    volumes:
+      - ./medconnect_deployment:/app/medconnect_deployment
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+
+  # Tu pourras ajouter ici plus tard :
+  # medconnect-backend:
+  #   ...
+  # medconnect-db:
+  #   ...
