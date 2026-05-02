@@ -1,8 +1,6 @@
 # Modele et fichiers lourds
 model/
 *.safetensors
-*.joblib
-*.pkl
 
 # Python
 __pycache__/
