@@ -9,6 +9,7 @@ from transformers import AutoTokenizer, CamembertForSequenceClassification
 # CONFIGURATION
 # ============================================
 
+MODEL_HF_REPO   = "greykingreys/medconnect-camembert"
 DEPLOYMENT_PATH = "/app"
 MAX_LENGTH      = 128
 SEUIL_CONFIANCE = 0.3
@@ -19,8 +20,8 @@ SEUIL_CONFIANCE = 0.3
 
 print("Chargement du modele...")
 
-tokenizer     = AutoTokenizer.from_pretrained(f"{DEPLOYMENT_PATH}/model")
-model         = CamembertForSequenceClassification.from_pretrained(f"{DEPLOYMENT_PATH}/model")
+tokenizer     = AutoTokenizer.from_pretrained(MODEL_HF_REPO)
+model         = CamembertForSequenceClassification.from_pretrained(MODEL_HF_REPO)
 label_encoder = joblib.load(f"{DEPLOYMENT_PATH}/label_encoder.joblib")
 
 with open(f"{DEPLOYMENT_PATH}/reponses_par_maladie.json", "r", encoding="utf-8") as f:
